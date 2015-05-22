@@ -1,0 +1,94 @@
+.resourceTop, .resourceBottom {
+    color: white;
+    padding: .5em;
+    background-color: #245269;
+}
+
+body {
+    color: #ee674e;
+}
+
+.resourceListWrap {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5em;
+    background-color: black;
+}
+
+.resourceListWrap li {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+
+.resourceListItem input {
+    background-color: #593e39;
+    color: #ee674e;
+    border: .1em solid #ee674e;
+}
+
+.resourceListItem {
+    background-color: #593e39;
+    border-right: .125em solid #ee674e;
+    border-bottom: .125em solid #ee674e;
+    margin: 0;
+    padding: .5em;
+}
+
+.listControl button {
+margin: 0 .25em 0 .25em;
+}
+
+.scrollable-content {
+    background-color: black;
+}
+
+.resourceListItem div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listName {
+    font-weight: bold;
+    font-size: 1.15em;
+    width: 35%;
+}
+
+.listType {
+    margin-left: 1em;
+    font-weight: bold;
+}
+
+.listControl {
+    margin-left: auto;
+    text-align: right;
+    width: 30%;
+}
+
+.listValue {
+    margin-left: auto;
+    text-align: right;
+    width: 25%;
+    border: .1em solid #ee674e;
+    padding: .5em;
+}
+
+.resourceItemName {
+    font-weight: bold;
+}
+
+.otherHidden {
+    visibility: hidden;
+}
+
+input {
+    color: #ee674e;
+    padding: .25em;
+}
+
+button {
+    background-color: #593e39;
+    color: #ee674e;
+    border: .025em solid #ee674e;
+    padding: .5em 1em .5em 1em;
+}
