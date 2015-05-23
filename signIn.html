@@ -1,0 +1,11 @@
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <form ng-submit="resApp.userLoad()">
+            <ul>
+                <li><input placeholder="Username:" ng-model="resApp.user.username"/></li>
+                <li><input placeholder="Password:" ng-model="resApp.user.password"/></li>
+                <li><button type="submit" value="submit" id="signInBtn" ng-disabled="resApp.user.username==undefined||resApp.user.username=='' || resApp.user.password=='' || resApp.user.password==undefined">Sign In</button></li>
+            </ul>
+        </form>
+    </div>
+</div>

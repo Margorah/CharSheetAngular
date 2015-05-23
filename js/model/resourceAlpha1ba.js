@@ -5,25 +5,59 @@
 
     var resourceAlpha = angular.module('resourceApp', ["ngTouch", "ngRoute","mobile-angular-ui"]);
 
+    resourceAlpha.factory('appData', function() {
+        var appData = {};
+        appData.user = {
+            username: '',
+            password: ''
+        };
+        appData.charList = [];
+        appData.resources = [];
+
+        appData.populateResourceList = function(list) {
+              appData.resources = list;
+        };
+        appData.addResource = function(item) {
+            appData.resources.push(item);
+        };
+        appData.editResource = function(index, newValue) {
+            appData.resources[index]["value"] = newValue;
+        };
+
+        return appData;
+    });
+
     resourceAlpha.config(function($routeProvider, $locationProvider) {
         $routeProvider.when('/', {
             templateUrl: 'signIn.html'
         });
+        $routeProvider.when('/resourceList', {
+            //template: $templateCache.get('resourceList.html')
+            templateUrl: 'resourceList.html'
+        });
+        $routeProvider.when('/characterSelect', {
+            templateUrl: 'characterSelect.html'
+        });
+        $routeProvider.when('/addResource', {
+            templateUrl: 'addResource.html'
+        });
     });
 
-    resourceAlpha.controller('resourceAppMain', ['$scope', '$http', function ($scope, $http) {
+    resourceAlpha.controller('resourceAppMain', ['$scope', '$http', '$location', 'appData', function ($scope, $http, $location, appData) {
+        var self = this;
+        self.user = appData.user;
         $scope.charList = "";
         $scope.selectedChar = null;
-        $scope.data = [];
         this.userLoad = function () {
-            $scope.data = [];
             $scope.selectedChar = null;
             $http({
-                url: preface + 'user?name=' + $scope.userName.toLowerCase(),
+                url: preface + 'user?name=' + self.user.username.toLowerCase(),// + '&pass=' + self.user.password,
                 method: 'GET'
             }).success(function (loadedData) {
-                if (loadedData.constructor === Array)
+                if (loadedData.constructor === Array) {
                     $scope.charList = loadedData;
+                    $location.path('/characterSelect');
+                }
             }).error(function (data, status, headers, config) {
                 console.log(data);
                 console.log(status);
@@ -32,17 +66,16 @@
             });
         };
     }]);
-    resourceAlpha.controller('resourceAppCharList', ['$scope', '$http', function ($scope, $http) {
+    resourceAlpha.controller('resourceAppCharList', ['$scope', '$http', '$location', 'appData', function ($scope, $http, $location, appData) {
         //look into using $location
         this.load = function () {
             $http({
-                url: preface + 'loadChar?user=' + $scope.userName.toLowerCase() + '&url=' + $scope.selectedChar.url,
+                url: preface + 'loadChar?user=' + appData.user.username.toLowerCase() + '&url=' + $scope.selectedChar.url,
                 method: 'GET'
             }).success(function (loadedData) {
                 if (loadedData.constructor === Array)
-                    $scope.$parent.data = loadedData;
-                else
-                    $scope.data = [];
+                    appData.populateResourceList(loadedData);
+                $location.path('/resourceList');
                 console.log('Get Success');
             }).error(function (data, status, headers, config) {
                 console.log(data);
@@ -53,12 +86,12 @@
         };
         this.save = function () {
             //in ng-repeat need to add track by {uniqueProperty}
-            toSend = angular.toJson($scope.$parent.data);
+            toSend = angular.toJson(appData.resources);
             $http({
                 url: preface + 'saveChar',
                 method: 'POST',
                 data: {
-                    user: $scope.userName.toLowerCase(),
+                    user: appData.username.toLowerCase(),
                     url: $scope.selectedChar.url,
                     data: toSend
                 }
@@ -73,29 +106,32 @@
             });
         };
     }]);
-    resourceAlpha.controller('resourceAppEditData', ['$scope', function ($scope) {
+    resourceAlpha.controller('resourceAppEditData', ['appData', function (appData) {
+        var self = this;
         this.toChange = "";
         this.currentView = 'Read';
+        self.data = appData.resources;
+
         this.plus = function (index) {
-            this.toChange ? $scope.data[index].value += parseInt(eval(this.toChange)) : $scope.data[index].value += 1;
-            if ($scope.data[index].maximum > 0) {
-                if ($scope.data[index].value > $scope.data[index].maximum)
-                    $scope.data[index].value = $scope.data[index].maximum;
+            this.toChange ? self.data[index].value += parseInt(eval(this.toChange)) : self.data[index].value += 1;
+            if (self.data[index].maximum > 0) {
+                if (self.data[index].value > self.data[index].maximum)
+                    self.data[index].value = self.data[index].maximum;
             }
             this.toChange = "";
         };
         this.minus = function (index) {
-            this.toChange ? $scope.data[index].value -= parseInt(eval(this.toChange)) : $scope.data[index].value -= 1;
-            if ($scope.data[index].value < 0)
-                $scope.data[index].value = 0;
+            this.toChange ? self.data[index].value -= parseInt(eval(this.toChange)) : self.data[index].value -= 1;
+            if (self.data[index].value < 0)
+                self.data[index].value = 0;
             this.toChange = "";
         };
         this.refresh = function (index) {
-            if ($scope.data[index].maximum > 0)
-                $scope.data[index].value = $scope.data[index].maximum;
+            if (self.data[index].maximum > 0)
+                self.data[index].value = self.data[index].maximum;
         };
         this.remove = function (index) {
-            $scope.data.splice(index, 1);
+            self.data.splice(index, 1);
         };
         this.inView = function(current) {
             return this.currentView === current;
@@ -107,11 +143,13 @@
                 this.currentView = 'Read';
         };
     }]);
-    resourceAlpha.controller('resourceAppAddData', ['$scope', function ($scope) {
+    resourceAlpha.controller('resourceAppAddData', ['appData', function (appData) {
+        var self = this;
+        self.data = appData.resources;
         this.push = function () {
             if (this.maximum === undefined || this.maximum < 0)
                 this.maximum = 0;
-            $scope.data.push({
+            self.data.push({
                 name: this.name,
                 type: this.type,
                 value: this.value,

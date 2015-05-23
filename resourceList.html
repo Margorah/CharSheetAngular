@@ -1,0 +1,32 @@
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <ul class="resourceListWrap" ng-controller="resourceAppEditData as resEdit">
+            <li ng-repeat="item in resEdit.data">
+                <form class="resourceListItem">
+                    <div ng-show="resEdit.inView('Read')">
+                        <span class="listName">{{item.name}}:</span>
+                        <span class="listValue">
+                            {{item.value}}
+                            <span ng-show="item.maximum > 0"> / {{item.maximum}}</span>
+                            <span class="listType">{{item.type}}</span>
+                        </span>
+                        <span class="listControl">
+                            <button ng-click="resEdit.viewToggle($index);">Edit</button>
+                        </span>
+                    </div>
+                    <div ng-show="resEdit.inView('Edit')" class="editView">
+                        <span>
+                            <input ng-model="resEdit.toChange" placeholder="{{item.name}}: " size="8"/>
+                        </span>
+                        <span>
+                            <button ng-click="resEdit.plus($index); resEdit.viewToggle();">+</button>
+                            <button ng-click="resEdit.minus($index); resEdit.viewToggle();">-</button>
+                            <button ng-class="{otherHidden: item.maximum < 1}" ng-click="resEdit.refresh($index); resEdit.viewToggle();">@</button>
+                            <button ng-click="resEdit.remove($index); resEdit.viewToggle();">x</button>
+                        </span>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>

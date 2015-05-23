@@ -1,0 +1,16 @@
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <section ng-controller="resourceAppAddShow as resShow" class="navbar navbar-absolute-bottom resourceBottom">
+            <form ng-controller="resourceAppAddData as resAdd" ng-submit="">
+                <button ng-click="resShow.showToggle()" class="pull-left">{{resShow.buttonText}}</button>
+                <ul ng-show="resShow.isVisible('Cancel')" class="resourceListWrap">
+                    <li><label>Name:</label><input ng-model="resAdd.name"/></li>
+                    <li><label>Value:</label><input type="number" ng-model="resAdd.value"/></li>
+                    <li><label>Maximum:</label><input placeholder="0 for no maximum" type="number" ng-model="resAdd.maximum"/></li>
+                    <li><label>Type:</label><input ng-model="resAdd.type"/></li>
+                </ul>
+                <button  class="pull-right" ng-click="resShow.showToggle(); resAdd.push()" ng-show="resShow.isVisible('Cancel')">Confirm</button>
+            </form>
+        </section>
+    </div>
+</div>

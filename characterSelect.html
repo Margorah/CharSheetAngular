@@ -1,0 +1,13 @@
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <form ng-submit="" ng-controller="resourceAppCharList as resCharList">
+            <ul>
+                <li>
+                    <select ng-change="resCharList.load()" ng-model="selectedChar" ng-options="char as char.name for char in charList">
+                    </select>
+                    <button ng-click="resCharList.save()">Save</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
