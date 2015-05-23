@@ -1,6 +1,10 @@
+<meta http-equiv="expires" content="0">
 <div class="scrollable">
     <div class="scrollable-content section">
-        <ul class="resourceListWrap" ng-controller="resourceAppEditData as resEdit">
+        <ul id="resourceList" ng-controller="resourceAppEditData as resEdit">
+            <div ui-content-for="title">
+                <span>{{resEdit.selectedChar.name}}</span>
+            </div>
             <li ng-repeat="item in resEdit.data">
                 <form class="resourceListItem">
                     <div ng-show="resEdit.inView('Read')">
@@ -16,7 +20,7 @@
                     </div>
                     <div ng-show="resEdit.inView('Edit')" class="editView">
                         <span>
-                            <input ng-model="resEdit.toChange" placeholder="{{item.name}}: " size="8"/>
+                            <input ng-model="resEdit.toChange" placeholder="{{item.name}}: "/>
                         </span>
                         <span>
                             <button ng-click="resEdit.plus($index); resEdit.viewToggle();">+</button>
@@ -27,6 +31,12 @@
                     </div>
                 </form>
             </li>
+            <div ui-content-for="navbarAction">
+                <button ng-click="resEdit.save()">Save</button>
+            </div>
+            <div ui-content-for="navbarREdit">
+                <button ng-click="resEdit.add()">Add</button>
+            </div>
         </ul>
     </div>
 </div>

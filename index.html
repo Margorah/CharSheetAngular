@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="expires" content="0">
         <title>Character Resources Alpha</title>
         <meta name="apple-mobile-web-app-capable" content="yes"/>
         <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
@@ -21,15 +22,19 @@
     </head>
     <body ng-app="resourceApp" ng-controller="resourceAppMain as resApp" class="app">
         <header class="navbar navbar-absolute-top resourceTop">
-            <div class="navbar-brand-center" yield-to="title">
+            <div class="navbar-brand-center" ui-yield-to="title">
                 <span>Resource App 1</span>
             </div>
-            <div class="pull-right" yield-to="navbarAction">
+            <div class="pull-right" ui-yield-to="navbarAction">
             </div>
         </header>
         <section class="app-body">
             <ng-view class="app-content">
             </ng-view>
         </section>
+        <footer class="navbar navbar-absolute-bottom resourceBottom">
+            <div class="pull-left" ui-yield-to="navbarLEdit"></div>
+            <div class="pull-right" ui-yield-to="navbarREdit"></div>
+        </footer>
     </body>
 </html>

@@ -1,13 +1,17 @@
+<meta http-equiv="expires" content="0">
 <div class="scrollable">
     <div class="scrollable-content section">
         <form ng-submit="" ng-controller="resourceAppCharList as resCharList">
             <ul>
-                <li>
-                    <select ng-change="resCharList.load()" ng-model="selectedChar" ng-options="char as char.name for char in charList">
-                    </select>
-                    <button ng-click="resCharList.save()">Save</button>
+                <li ng-repeat="char in resCharList.charList" ng-click="resCharList.load($index)">
+                    {{char.name}}
                 </li>
             </ul>
         </form>
     </div>
 </div>
+<!--
+    <select ng-change="resCharList.load()" ng-model="selectedChar" ng-options="char as char.name for char in charList">
+    </select>
+
+-->

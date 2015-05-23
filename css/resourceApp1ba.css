@@ -1,45 +1,75 @@
 .resourceTop, .resourceBottom {
     color: white;
     padding: .5em;
-    background-color: #245269;
+    background-color: #ae6360;
 }
 
 body {
     color: #ee674e;
 }
 
-.resourceListWrap {
+.scrollable-content {
+    background: url("../imgs/background.jpg") center;
+    background-size: 100% auto;
+}
+
+.navbar-brand-center {
+    font-size: 1.5em;
+}
+
+.app ul {
     list-style-type: none;
     margin: 0;
-    padding: 0.5em;
-    background-color: black;
+    padding: 0.5em 0.5em .15em 0.5em;
+    /*background-color: #593e39;*/
 }
 
-.resourceListWrap li {
+.app li {
+    background-color: #593e39;
     margin: 0 0 0.5em 0;
-    padding: 0;
-}
-
-.resourceListItem input {
-    background-color: #593e39;
-    color: #ee674e;
-    border: .1em solid #ee674e;
-}
-
-.resourceListItem {
-    background-color: #593e39;
     border-right: .125em solid #ee674e;
     border-bottom: .125em solid #ee674e;
-    margin: 0;
     padding: .5em;
 }
 
-.listControl button {
-margin: 0 .25em 0 .25em;
+input {
+    color: #ee674e;
+    padding: .25em;
+    background-color: #593e39;
+    border: .1em solid #ee674e;
+    font-weight: bold;
 }
 
-.scrollable-content {
-    background-color: black;
+button {
+    background-color: #593e39;
+    color: #ee674e;
+    border: .025em solid #ee674e;
+    padding: .5em 1em .5em 1em;
+}
+
+#loginWrap {
+    width: 75%;
+    /*border: .125em solid #ee674e;*/
+    margin: 0 auto;
+}
+
+#loginWrap li {
+    width: 100%;
+    overflow: hidden;
+}
+
+/*#loginWrap button {
+    float: right;
+}*/
+
+/*#loginWrap button:after {
+    content: " ";
+    clear: both;
+    display: block;
+}*/
+
+.listControl button {
+    margin: 0 .25em 0 .25em;
 }
 
 .resourceListItem div {
@@ -81,14 +111,6 @@ margin: 0 .25em 0 .25em;
     visibility: hidden;
 }
 
-input {
-    color: #ee674e;
-    padding: .25em;
-}
-
-button {
-    background-color: #593e39;
-    color: #ee674e;
-    border: .025em solid #ee674e;
-    padding: .5em 1em .5em 1em;
+.editView input {
+    width: 100%;
 }
