@@ -6,8 +6,8 @@
                 <span>{{resEdit.selectedChar.name}}</span>
             </div>
             <li ng-repeat="item in resEdit.data">
-                <form class="resourceListItem">
-                    <div ng-show="resEdit.inView('Read')">
+                <form class="resourceListItem" ng-controller="resourceAppTrueEdit as resTrue">
+                    <div ng-show="resTrue.inView('Read')">
                         <span class="listName">{{item.name}}:</span>
                         <span class="listValue">
                             {{item.value}}
@@ -15,23 +15,23 @@
                             <span class="listType">{{item.type}}</span>
                         </span>
                         <span class="listControl">
-                            <button ng-click="resEdit.viewToggle($index);">Edit</button>
+                            <button ng-click="resTrue.viewToggle(); focusInput=true">Edit</button>
                         </span>
                     </div>
-                    <div ng-show="resEdit.inView('Edit')" class="editView">
+                    <div ng-show="resTrue.inView('Edit')" class="editView">
                         <span>
-                            <input ng-model="resEdit.toChange" placeholder="{{item.name}}: "/>
+                            <input focus-me="focusInput" ng-model="resEdit.toChange" placeholder="{{item.name}}: "/>
                         </span>
                         <span>
-                            <button ng-click="resEdit.plus($index); resEdit.viewToggle();">+</button>
-                            <button ng-click="resEdit.minus($index); resEdit.viewToggle();">-</button>
-                            <button ng-class="{otherHidden: item.maximum < 1}" ng-click="resEdit.refresh($index); resEdit.viewToggle();">@</button>
-                            <button ng-click="resEdit.remove($index); resEdit.viewToggle();">x</button>
+                            <button ng-click="resEdit.plus($index); resTrue.viewToggle();">+</button>
+                            <button ng-click="resEdit.minus($index); resTrue.viewToggle();">-</button>
+                            <button ng-class="{otherHidden: item.maximum < 1}" ng-click="resEdit.refresh($index); resTrue.viewToggle();">@</button>
+                            <button ng-click="resEdit.remove($index); resTrue.viewToggle();">x</button>
                         </span>
                     </div>
                 </form>
             </li>
-            <div ui-content-for="navbarAction">
+            <div ui-content-for="navbarLEdit">
                 <button ng-click="resEdit.save()">Save</button>
             </div>
             <div ui-content-for="navbarREdit">

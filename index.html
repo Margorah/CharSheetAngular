@@ -11,18 +11,18 @@
         <link rel="stylesheet" href="css/mobile-angular-ui-hover.min.css" />
         <link rel="stylesheet" href="css/mobile-angular-ui-base.min.css" />
         <link rel="stylesheet" href="css/mobile-angular-ui-desktop.min.css" />
-        <link rel="stylesheet" href="css/resourceApp1ba.css"/>
+        <link rel="stylesheet" href="css/resourceApp2.css"/>
 
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-route.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-touch.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-touch.min.js"></script>
         <script src="js/frame/mobile-angular-ui.min.js"></script>
 
-        <script src="js/model/resourceAlpha1ba.js"></script>
+        <script src="js/model/resourceAlpha2.js"></script>
     </head>
     <body ng-app="resourceApp" ng-controller="resourceAppMain as resApp" class="app">
         <header class="navbar navbar-absolute-top resourceTop">
-            <div class="navbar-brand-center" ui-yield-to="title">
+            <div class="navabar-brand navbar-brand-center" ui-yield-to="title">
                 <span>Resource App 1</span>
             </div>
             <div class="pull-right" ui-yield-to="navbarAction">
@@ -33,8 +33,10 @@
             </ng-view>
         </section>
         <footer class="navbar navbar-absolute-bottom resourceBottom">
-            <div class="pull-left" ui-yield-to="navbarLEdit"></div>
-            <div class="pull-right" ui-yield-to="navbarREdit"></div>
+            <div class="pull-left" ui-yield-to="navbarLEdit">
+            </div>
+            <div class="pull-right" ui-yield-to="navbarREdit">
+            </div>
         </footer>
     </body>
 </html>

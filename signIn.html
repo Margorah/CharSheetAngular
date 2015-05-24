@@ -5,10 +5,11 @@
             <ul id="loginWrap">
                 <li><input placeholder="Username:" ng-model="resApp.user.username"/></li>
                 <li><input placeholder="Password:" ng-model="resApp.user.password"/></li>
+                <li><button ng-click="resApp.userLoad()" ng-touch="resApp.userLoad()" id="signInBtn">Sign In</button>
+                </li>
             </ul>
         </form>
-        <div ui-content-for="navbarAction">
-            <button ng-click="resApp.userLoad()" id="signInBtn" ng-disabled="resApp.user.username==undefined||resApp.user.username==''">Sign In</button>
+        <div ui-content-for="navbarREdit">
         </div>
     </div>
 </div>

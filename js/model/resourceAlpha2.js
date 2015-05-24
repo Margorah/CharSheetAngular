@@ -87,7 +87,7 @@
             });
         };
     }]);
-    resourceAlpha.controller('resourceAppEditData', ['$http', '$location', 'appData', function ($http, $location, appData) {
+    resourceAlpha.controller('resourceAppEditData', ['$scope', '$http', '$location', 'appData', function ($scope, $http, $location, appData) {
         var self = this;
         self.selectedChar = appData.selectedChar;
         self.toChange = "";
@@ -115,15 +115,6 @@
         this.remove = function (index) {
             self.data.splice(index, 1);
         };
-        this.inView = function(current) {
-            return this.currentView === current;
-        };
-        this.viewToggle = function() {
-            if (this.currentView == 'Read')
-                this.currentView = 'Edit';
-            else
-                this.currentView = 'Read';
-        };
         this.save = function () {
             //in ng-repeat need to add track by {uniqueProperty}
             toSend = angular.toJson(self.data);
@@ -149,6 +140,32 @@
             $location.path('/addResource');
         };
     }]);
+    resourceAlpha.controller('resourceAppTrueEdit', ['appData', function(appData) {
+        this.currentView = 'Read';
+        this.inView = function(current) {
+            return this.currentView === current;
+        };
+        this.viewToggle = function() {
+            if (this.currentView == 'Read')
+                this.currentView = 'Edit';
+            else
+                this.currentView = 'Read';
+        };
+    }]);
+    resourceAlpha.directive('focusMe', function($timeout) {
+        return {
+            link: function(scope, element, attrs) {
+                scope.$watch(attrs.focusMe, function(value) {
+                    if(value === true) {
+                        $timeout(function() {
+                            element[0].focus();
+                            scope[attrs.focusMe] = false;
+                        });
+                    }
+                });
+            }
+        };
+    });
     resourceAlpha.controller('resourceAppAddData', ['$location', 'appData', function ($location, appData) {
         var self = this;
         self.data = appData.resources;
