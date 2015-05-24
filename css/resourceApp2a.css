@@ -8,9 +8,18 @@ body {
     color: #ee674e;
 }
 
-.scrollable-content {
-    background: url("../imgs/background.jpg") center;
-    background-size: 100% auto;
+@media screen and (min-width: 341px) {
+    .scrollable-content {
+        background: url("../imgs/background.jpg") center;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .scrollable-content {
+        background: url("../imgs/backgroundSmall.jpg") center;
+        background-size: cover;
+    }
 }
 
 .navbar-brand-center {
@@ -37,7 +46,6 @@ input {
     padding: .25em;
     background-color: #593e39;
     border: .1em solid #ee674e;
-    font-weight: bold;
 }
 
 button {
@@ -51,11 +59,16 @@ button {
     width: 75%;
     /*border: .125em solid #ee674e;*/
     margin: 0 auto;
+    font-size: 1.25em;
 }
 
 #loginWrap li {
     width: 100%;
     overflow: hidden;
+}
+
+#charSelect {
+    font-size: 1.5em;
 }
 
 /*#loginWrap button {
@@ -81,7 +94,7 @@ button {
 .listName {
     font-weight: bold;
     font-size: 1.15em;
-    width: 35%;
+    width: 30%;
 }
 
 .listType {
@@ -92,15 +105,25 @@ button {
 .listControl {
     margin-left: auto;
     text-align: right;
-    width: 30%;
+    width: 20%;
 }
 
 .listValue {
     margin-left: auto;
     text-align: right;
-    width: 25%;
+    width: 40%;
     border: .1em solid #ee674e;
-    padding: .5em;
+    padding: .35em;
+}
+
+.editValue {
+    width: 25%;
+}
+
+.editControl {
+    width: 60%;
+    margin-left: auto;
+    text-align: right;
 }
 
 .resourceItemName {
@@ -109,8 +132,4 @@ button {
 
 .otherHidden {
     visibility: hidden;
-}
-
-.editView input {
-    width: 100%;
 }

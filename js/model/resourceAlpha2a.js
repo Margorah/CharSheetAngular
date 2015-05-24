@@ -1,9 +1,4 @@
-(function() {
-    var local = 'http://localhost:3000/';
-    var aso = '../';
-    var preface = local;
-
-    var resourceAlpha = angular.module('resourceApp', ["ngTouch", "ngRoute","mobile-angular-ui"]);
+    var resourceAlpha = angular.module('resourceApp', ["ngRoute","mobile-angular-ui"]);
 
     resourceAlpha.factory('appData', function() {
         var appData = {};
@@ -189,4 +184,3 @@
             $location.path('/resourceList');
         }
     }]);
-})();

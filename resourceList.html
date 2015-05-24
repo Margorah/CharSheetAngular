@@ -18,11 +18,11 @@
                             <button ng-click="resTrue.viewToggle(); focusInput=true">Edit</button>
                         </span>
                     </div>
-                    <div ng-show="resTrue.inView('Edit')" class="editView">
-                        <span>
-                            <input focus-me="focusInput" ng-model="resEdit.toChange" placeholder="{{item.name}}: "/>
+                    <div ng-show="resTrue.inView('Edit')">
+                        <span class="editValue">
+                            <input focus-me="focusInput" ng-model="resEdit.toChange" type="number" placeholder="{{item.name}}: " size="6"/>
                         </span>
-                        <span>
+                        <span class="editControl">
                             <button ng-click="resEdit.plus($index); resTrue.viewToggle();">+</button>
                             <button ng-click="resEdit.minus($index); resTrue.viewToggle();">-</button>
                             <button ng-class="{otherHidden: item.maximum < 1}" ng-click="resEdit.refresh($index); resTrue.viewToggle();">@</button>

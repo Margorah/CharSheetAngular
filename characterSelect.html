@@ -2,7 +2,7 @@
 <div class="scrollable">
     <div class="scrollable-content section">
         <form ng-submit="" ng-controller="resourceAppCharList as resCharList">
-            <ul>
+            <ul id="charSelect">
                 <li ng-repeat="char in resCharList.charList" ng-click="resCharList.load($index)">
                     {{char.name}}
                 </li>

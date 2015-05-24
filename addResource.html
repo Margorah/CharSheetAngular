@@ -8,11 +8,11 @@
                     <li><input placeholder="0 for no maximum" type="number" ng-model="resAdd.maximum"/></li>
                     <li><input placeholder="Type:" ng-model="resAdd.type"/></li>
                 </ul>
-                <div ui-content-for="navbarAction">
+                <div ui-content-for="navbarREdit">
                     <button ng-click="resAdd.push()">Add</button>
                 </div>
-                <div ui-content-for="navbarREdit">
-                    <button ng-clicl="resAdd.cancel()">Cancel</button>
+                <div ui-content-for="navbarLEdit">
+                    <button ng-click="resAdd.cancel()">Cancel</button>
                 </div>
             </form>
         </section>
