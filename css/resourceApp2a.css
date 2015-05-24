@@ -71,16 +71,6 @@ button {
     font-size: 1.5em;
 }
 
-/*#loginWrap button {
-    float: right;
-}*/
-
-/*#loginWrap button:after {
-    content: " ";
-    clear: both;
-    display: block;
-}*/
-
 .listControl button {
     margin: 0 .25em 0 .25em;
 }
