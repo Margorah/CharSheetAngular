@@ -1,4 +1,0 @@
-PassengerEnabled on
-PassengerAppRoot /home/daytonma/nodeserver/charsheet
-SetEnv NODE_ENV development
-SetEnv NODE_PATH /usr/lib/node_modules
