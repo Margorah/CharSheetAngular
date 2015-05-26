@@ -21,7 +21,7 @@ server.on('request', function(request, response) {
         var requestOptions =  url.parse(request.url, true);
         console.log('PathName: ' + requestOptions.pathname + " Query: " + JSON.stringify(requestOptions.query));
         if (requestOptions.pathname == '/loadChar') {
-            var string = preface + requestOptions.query['user'] + '/' + requestOptions.query['url'];
+            var string = preface + requestOptions.query['user'] + '/' + requestOptions.query['url'] + '.json';
             fs.readFile(string, 'utf8', function (err, file) {
                 if (err) {
                     if (err.code === 'ENOENT')
@@ -46,6 +46,15 @@ server.on('request', function(request, response) {
                 response.end(file);
             });
         }
+        else if (requestOptions.pathname == '/uid') {
+            //test. to remove
+            var uid = ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4);
+            response.writeHead(200, {'Content-type': 'text/plain'});
+            response.end(uid);
+            /*function generateUIDNotMoreThan1million() {
+                return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4)
+            }*/
+        }
     }
     else if (request.method == 'OPTIONS') {
         response.writeHead(200, corsHeaders);
@@ -63,7 +72,7 @@ server.on('request', function(request, response) {
             response.end();
             decoded = JSON.parse(postData);
 
-            fs.writeFile(preface + decoded['user'] + '/' + decoded['url'], decoded['data'], 'utf8', function(err, file) {
+            fs.writeFile(preface + decoded['user'] + '/' + decoded['url'] + '.json', decoded['data'], 'utf8', function(err, file) {
                 if (err) throw err;
 
             });

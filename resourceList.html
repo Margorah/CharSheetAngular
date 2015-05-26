@@ -2,10 +2,24 @@
 <div class="scrollable">
     <div class="scrollable-content section">
         <ul id="resourceList" ng-controller="resourceAppEditData as resEdit">
+            <div ui-content-for="navbarLAction">
+                <div class="btn btn-navbar">
+                    <button ng-click="resEdit.changeChar()">
+                        Switch Char
+                    </button>
+                </div>
+            </div>
             <div ui-content-for="title">
                 <span>{{resEdit.selectedChar.name}}</span>
             </div>
-            <li ng-repeat="item in resEdit.data">
+            <div ui-content-for="navbarRAction">
+                <div class="btn btn-navbar">
+                    <button ng-click="resEdit.logOut()">
+                        Log Out
+                    </button>
+                </div>
+            </div>
+            <li ng-repeat="item in resEdit.data track by item.id">
                 <form class="resourceListItem" ng-controller="resourceAppTrueEdit as resTrue">
                     <div ng-show="resTrue.inView('Read')">
                         <span class="listName">{{item.name}}:</span>
@@ -32,10 +46,14 @@
                 </form>
             </li>
             <div ui-content-for="navbarLEdit">
-                <button ng-click="resEdit.save()">Save</button>
+                <div class="btn btn-navbar">
+                    <button ng-click="resEdit.save()">Save</button>
+                </div>
             </div>
             <div ui-content-for="navbarREdit">
-                <button ng-click="resEdit.add()">Add</button>
+                <div class="btn btn-navbar">
+                    <button ng-click="resEdit.add()">Add</button>
+                </div>
             </div>
         </ul>
     </div>

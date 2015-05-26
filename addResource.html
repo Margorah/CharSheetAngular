@@ -1,5 +1,8 @@
 <div class="scrollable">
     <div class="scrollable-content section">
+        <div ui-content-for="title">
+            <span>Add Resource</span>
+        </div>
         <section>
             <form ng-controller="resourceAppAddData as resAdd" ng-submit="">
                 <ul class="resourceListWrap">
@@ -8,11 +11,15 @@
                     <li><input placeholder="0 for no maximum" type="number" ng-model="resAdd.maximum"/></li>
                     <li><input placeholder="Type:" ng-model="resAdd.type"/></li>
                 </ul>
-                <div ui-content-for="navbarREdit">
-                    <button ng-click="resAdd.push()">Add</button>
-                </div>
                 <div ui-content-for="navbarLEdit">
-                    <button ng-click="resAdd.cancel()">Cancel</button>
+                    <div class="btn btn-navbar" >
+                        <button ng-click="resAdd.cancel()">Cancel</button>
+                    </div>
+                </div>
+                <div ui-content-for="navbarREdit">
+                    <div class="btn btn-navbar">
+                        <button ng-click="resAdd.push()">Add</button>
+                    </div>
                 </div>
             </form>
         </section>

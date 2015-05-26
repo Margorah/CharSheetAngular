@@ -1,6 +1,5 @@
 .resourceTop, .resourceBottom {
     color: white;
-    padding: .5em;
     background-color: #ae6360;
 }
 
@@ -24,6 +23,7 @@ body {
 
 .navbar-brand-center {
     font-size: 1.5em;
+    padding-top: .45em;
 }
 
 .app ul {

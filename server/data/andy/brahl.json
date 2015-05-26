@@ -1,1 +1,50 @@
-[{"name":"Health","type":"MDC","value":300,"maximum":300,"disabled":false},{"name":"Spell","type":"MDC","value":525,"maximum":525,"disabled":false},{"name":"Attacks","type":"Action","value":6,"maximum":6,"disabled":false},{"name":"PPE","type":"PPE","value":235,"maximum":235,"disabled":false},{"name":"Experience","type":"XP","value":12000,"maximum":0,"disabled":false},{"name":"Savings","type":"Credit","value":0,"maximum":null,"disabled":false}]
+[
+  {
+    "id": "r0c6",
+    "name": "Health",
+    "type": "MDC",
+    "value": 300,
+    "maximum": 300,
+    "disabled": false
+  },
+  {
+    "id": "nxbx",
+    "name": "Spell",
+    "type": "MDC",
+    "value": 525,
+    "maximum": 525,
+    "disabled": false
+  },
+  {
+    "id": "dr60",
+    "name": "Attacks",
+    "type": "Action",
+    "value": 6,
+    "maximum": 6,
+    "disabled": false
+  },
+  {
+    "id": "xn7t",
+    "name": "PPE",
+    "type": "PPE",
+    "value": 235,
+    "maximum": 235,
+    "disabled": false
+  },
+  {
+    "id": "icr8",
+    "name": "Experience",
+    "type": "XP",
+    "value": 12000,
+    "maximum": 0,
+    "disabled": false
+  },
+  {
+    "id": "lo5m",
+    "name": "Savings",
+    "type": "Credit",
+    "value": 0,
+    "maximum": null,
+    "disabled": false
+  }
+]

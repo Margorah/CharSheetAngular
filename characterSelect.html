@@ -1,17 +1,24 @@
 <meta http-equiv="expires" content="0">
 <div class="scrollable">
     <div class="scrollable-content section">
-        <form ng-submit="" ng-controller="resourceAppCharList as resCharList">
-            <ul id="charSelect">
-                <li ng-repeat="char in resCharList.charList" ng-click="resCharList.load($index)">
-                    {{char.name}}
-                </li>
-            </ul>
-        </form>
+        <section ng-controller="resourceAppCharList as resCharList">
+            <div ui-content-for="title">
+                <span>Select Character</span>
+            </div>
+            <div ui-content-for="navbarRAction">
+                <div class="btn btn-navbar">
+                    <button ng-click="resCharList.logOut()">
+                        Log Out
+                    </button>
+                </div>
+            </div>
+            <form ng-submit="">
+                <ul id="charSelect">
+                    <li ng-repeat="char in resCharList.charList" ng-click="resCharList.load($index)">
+                        {{char.name}}
+                    </li>
+                </ul>
+            </form>
+        </section>
     </div>
 </div>
-<!--
-    <select ng-change="resCharList.load()" ng-model="selectedChar" ng-options="char as char.name for char in charList">
-    </select>
-
--->

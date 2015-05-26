@@ -1,1 +1,58 @@
-[{"name":"Health","type":"HP","value":165,"maximum":165,"disabled":false},{"name":"PPE","type":"PPE","value":414,"maximum":414,"disabled":false},{"name":"ISP","type":"ISP","value":18,"maximum":18,"disabled":false},{"name":"Attacks","type":"Action","value":5,"maximum":5,"disabled":false},{"name":"Experience","type":"XP","value":15000,"maximum":0,"disabled":false},{"name":"Savings","type":"Credit","value":15000,"maximum":null,"disabled":false},{"name":"NE4","type":"Round","value":10,"maximum":null,"disabled":false}]
+[
+  {
+    "id": "m6nh",
+    "name": "Health",
+    "type": "HP",
+    "value": 165,
+    "maximum": 165,
+    "disabled": false
+  },
+  {
+    "id": "u598",
+    "name": "PPE",
+    "type": "PPE",
+    "value": 414,
+    "maximum": 414,
+    "disabled": false
+  },
+  {
+    "id": "quuk",
+    "name": "ISP",
+    "type": "ISP",
+    "value": 18,
+    "maximum": 18,
+    "disabled": false
+  },
+  {
+    "id": "7kre",
+    "name": "Attacks",
+    "type": "Action",
+    "value": 5,
+    "maximum": 5,
+    "disabled": false
+  },
+  {
+    "id": "qvl3",
+    "name": "Experience",
+    "type": "XP",
+    "value": 15000,
+    "maximum": 0,
+    "disabled": false
+  },
+  {
+    "id": "cocz",
+    "name": "Savings",
+    "type": "Credit",
+    "value": 15000,
+    "maximum": null,
+    "disabled": false
+  },
+  {
+    "id": "mjkd",
+    "name": "NE4",
+    "type": "Round",
+    "value": 10,
+    "maximum": null,
+    "disabled": false
+  }
+]
