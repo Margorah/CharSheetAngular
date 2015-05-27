@@ -1,3 +1,2 @@
-var local = 'http://localhost:3000/';
-var aso = '../';
-var preface = local;
+//var preface = '../';
+var preface = 'http://fritz.telaran.keck:3000/';
